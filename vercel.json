@@ -11,8 +11,5 @@
       "src": "/(.*)",
       "dest": "index.js"
     }
-  ],
-  "env": {
-    "OPEN_AI_KEY": "@OPEN_AI_KEY"
-  }
+  ]
 }
