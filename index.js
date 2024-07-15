@@ -163,6 +163,14 @@ async function exp(url, passcode){
   return res;
 }
 
+app.get("/isokay", async(req, res) => { 
+  try{
+    res.status(201).json("yes");
+  }catch(e){
+    res.status(409).json({ message: e.message });
+  }
+})
+
 app.post("/test", async(req, res) => { 
   console.log("hitted api");
   const {url, password} =  req.body;
