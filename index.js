@@ -1,12 +1,14 @@
 const fs = require('fs-extra');
 const ffmpeg = require('fluent-ffmpeg');
 const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
-ffmpeg.setFfmpegPath(ffmpegPath);
+const express = require("express");
+const cors = require('cors');
 const OpenAI = require('openai');
 const { Builder, By, Key } = require("selenium-webdriver")
 const chrome = require("selenium-webdriver/chrome");
 const path = require("path");
 const dotenv = require("dotenv");
+
 dotenv.config();
 let chrome_options = new chrome.Options();
 const downloadPath = path.resolve(__dirname, "downloads");
@@ -24,9 +26,7 @@ chrome_options.addArguments("--ignore-ssl-errors=true");
 chrome_options.addArguments("--headless");
 let openaiKey = process.env.OPEN_AI_KEY;
 
-const express = require("express");
-const cors = require('cors');
-
+ffmpeg.setFfmpegPath(ffmpegPath);
 const app = express();
 app.use(express.json());
 app.use(cors());  
